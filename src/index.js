@@ -28,12 +28,12 @@ export default function BubbleElement(props) {
 
   const minProportion = options.minSize / options.size;
 
-  const verticalPadding = `calc(20% - ${
+  const verticalPadding = `calc(50% - ${
     options.yRadius +
     options.size / 2 -
     (options.cornerRadius * (1.414 - 1)) / 1.414
   }px)`;
-  const horizontalPadding = `calc(20% - ${
+  const horizontalPadding = `calc(50% - ${
     options.xRadius +
     options.size / 2 -
     (options.cornerRadius * (1.414 - 1)) / 1.414
