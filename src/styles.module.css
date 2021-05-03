@@ -74,7 +74,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  overflow: scroll !important;
+  overflow: none !important;
   scroll-padding: 100px 0 0 100px;
   -ms-overflow-style: none;
   scrollbar-width: none;
