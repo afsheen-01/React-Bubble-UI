@@ -39,7 +39,7 @@ export default function BubbleElement(props) {
     (options.cornerRadius * (1.414 - 1)) / 1.414
   }px)`;
 
-  const scrollable = useRef(null);
+  // const scrollable = useRef(null);
 
   let rows = [];
   var colsRemaining = 0;
@@ -62,27 +62,27 @@ export default function BubbleElement(props) {
   const [scrollTop, setScrollTop] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const handleScroll = (e) => {
-    if (e.target.className) {
-      setScrollTop(e.target.scrollTop);
-      setScrollLeft(e.target.scrollLeft);
-    }
-  };
+  // const handleScroll = (e) => {
+  //   if (e.target.className) {
+  //     setScrollTop(e.target.scrollTop);
+  //     setScrollLeft(e.target.scrollLeft);
+  //   }
+  // };
 
   // const handleResize = (e) => {
   //   console.log('resize', e)
   //   setElementHeight(container.current.clientHeight)
   // }
 
-  useLayoutEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useLayoutEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    scrollable.current.scrollTo(
-      (scrollable.current.scrollWidth - scrollable.current.clientWidth) / 2,
-      (scrollable.current.scrollHeight - scrollable.current.clientHeight) / 2
-    );
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   scrollable.current.scrollTo(
+  //     (scrollable.current.scrollWidth - scrollable.current.clientWidth) / 2,
+  //     (scrollable.current.scrollHeight - scrollable.current.clientHeight) / 2
+  //   );
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   const interpolate = (actualMin, actualMax, val, targetMin, targetMax) => {
     return (
@@ -264,9 +264,9 @@ export default function BubbleElement(props) {
         {/* <p>{`scrollTop: ${scrollTop}`}</p>
         <p>{`scrollLeft: ${scrollLeft}`}</p> */}
         <div
-          className={styles.scrollable}
-          ref={scrollable}
-          onScroll={handleScroll}
+          // className={styles.scrollable}
+          // ref={scrollable}
+          // onScroll={handleScroll}
         >
           <div
             className={styles.horizontalSpacer}
