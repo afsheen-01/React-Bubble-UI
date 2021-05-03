@@ -255,8 +255,8 @@ export default function BubbleElement(props) {
       className={props.className}
       style={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        // justifyContent: "center",
+        // alignItems: "center",
         ...props.style,
       }}
     >
