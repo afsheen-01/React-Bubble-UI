@@ -59,30 +59,6 @@ export default function BubbleElement(props) {
     }
   }
 
-  // const [scrollTop, setScrollTop] = useState(0);
-  // const [scrollLeft, setScrollLeft] = useState(0);
-
-  // const handleScroll = (e) => {
-  //   if (e.target.className) {
-  //     setScrollTop(e.target.scrollTop);
-  //     setScrollLeft(e.target.scrollLeft);
-  //   }
-  // };
-
-  // const handleResize = (e) => {
-  //   console.log('resize', e)
-  //   setElementHeight(container.current.clientHeight)
-  // }
-
-  // useLayoutEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   scrollable.current.scrollTo(
-  //     (scrollable.current.scrollWidth - scrollable.current.clientWidth) / 2,
-  //     (scrollable.current.scrollHeight - scrollable.current.clientHeight) / 2
-  //   );
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
 
   const interpolate = (actualMin, actualMax, val, targetMin, targetMax) => {
     return (
@@ -97,7 +73,6 @@ export default function BubbleElement(props) {
       options.size +
       (options.cornerRadius * (1.414 - 1)) / 1.414 -
       (options.yRadius - options.size);
-    //  - options.cornerRadius / 1.414;
     const xOffset =
       (options.size + options.gutter) * col +
       ((options.numCols - rows[row].length) * (options.size + options.gutter)) /
@@ -105,13 +80,10 @@ export default function BubbleElement(props) {
       options.size +
       (options.cornerRadius * (1.414 - 1)) / 1.414 -
       (options.xRadius - options.size);
-    // - options.cornerRadius / 1.414;
     const dy = yOffset;
     
     const distance = Math.sqrt(dx * dx + dy * dy);
     console.log(distance)
-    // let theta = Math.atan(dy / dx);
-    // if (dx < 0) theta += Math.PI;
     let out = {
       bubbleSize: 1,
       translateX: 0,
@@ -120,67 +92,7 @@ export default function BubbleElement(props) {
     };
     let distanceFromEdge = 0;
     let isInCornerRegion = false;
-    // if (Math.abs(dx) <= options.xRadius && Math.abs(dy) <= options.yRadius) {
-    //   // inner square
-    //   if (
-    //     Math.abs(dy) > options.yRadius - options.cornerRadius &&
-    //     Math.abs(dx) > options.xRadius - options.cornerRadius
-    //   ) {
-    //     // in corner region
-    //     const distToInnerCorner = Math.sqrt(
-    //       Math.pow(Math.abs(dy) - options.yRadius + options.cornerRadius, 2) +
-    //         Math.pow(Math.abs(dx) - options.xRadius + options.cornerRadius, 2)
-    //     );
-    //     if (distToInnerCorner > options.cornerRadius) {
-    //       // outside inner radius
-    //       distanceFromEdge = distToInnerCorner - options.cornerRadius;
-    //       isInCornerRegion = true;
-    //     }
-    //   }
-    // } else if (
-    //   Math.abs(dx) <= options.xRadius + options.fringeWidth &&
-    //   Math.abs(dy) <= options.yRadius + options.fringeWidth
-    // ) {
-    //   // outer square
-    //   if (
-    //     Math.abs(dy) > options.yRadius - options.cornerRadius &&
-    //     Math.abs(dx) > options.xRadius - options.cornerRadius
-    //   ) {
-    //     // in corner region
-    //     isInCornerRegion = true;
-    //     const distToInnerCorner = Math.sqrt(
-    //       Math.pow(Math.abs(dy) - options.yRadius + options.cornerRadius, 2) +
-    //         Math.pow(Math.abs(dx) - options.xRadius + options.cornerRadius, 2)
-    //     );
-    //     distanceFromEdge = distToInnerCorner - options.cornerRadius;
-    //     // distanceFromEdge = Math.min(
-    //     //   distToInnerCorner - options.cornerRadius,
-    //     //   options.fringeWidth
-    //     // );
-    //   } else {
-    //     distanceFromEdge = Math.max(
-    //       Math.abs(dx) - options.xRadius,
-    //       Math.abs(dy) - options.yRadius
-    //     );
-    //   }
-    // } else {
-    //   // outside outer square
-    //   isInCornerRegion =
-    //     Math.abs(dy) > options.yRadius - options.cornerRadius &&
-    //     Math.abs(dx) > options.xRadius - options.cornerRadius;
-    //   if (isInCornerRegion) {
-    //     const distToInnerCorner = Math.sqrt(
-    //       Math.pow(Math.abs(dy) - options.yRadius + options.cornerRadius, 2) +
-    //         Math.pow(Math.abs(dx) - options.xRadius + options.cornerRadius, 2)
-    //     );
-    //     distanceFromEdge = distToInnerCorner - options.cornerRadius;
-    //   } else {
-    //     distanceFromEdge = Math.max(
-    //       Math.abs(dx) - options.xRadius,
-    //       Math.abs(dy) - options.yRadius
-    //     );
-    //   }
-    // }
+  
 
     out.bubbleSize = interpolate(
       0,
@@ -189,65 +101,6 @@ export default function BubbleElement(props) {
       1,
       minProportion
     );
-
-    //handle magnitudes
-
-    // const translationMag = options.compact
-    //   ? (options.size - options.minSize) / 2
-    //   : 0;
-    // const interpolatedTranslationMag = interpolate(
-    //   0,
-    //   options.fringeWidth,
-    //   distanceFromEdge,
-    //   0,
-    //   translationMag
-    // );
-
-    // if (distanceFromEdge > 0 && distanceFromEdge <= options.fringeWidth) {
-    //   out.translateX = interpolatedTranslationMag;
-    //   out.translateY = interpolatedTranslationMag;
-    // } else if (distanceFromEdge - options.fringeWidth > 0) {
-    //   const extra =
-    //     (Math.max(
-    //       0,
-    //       distanceFromEdge - options.fringeWidth - options.size / 2
-    //     ) *
-    //       options.gravitation) /
-    //     10;
-    //   out.translateX = translationMag + extra;
-    //   out.translateY = translationMag + extra;
-    // }
-
-    // if (isInCornerRegion) {
-    //   const cornerDx = Math.abs(dx) - options.xRadius + options.cornerRadius;
-    //   const cornerDy = Math.abs(dy) - options.yRadius + options.cornerRadius;
-    //   let theta = Math.atan(-cornerDy / cornerDx);
-    //   if (dx > 0) {
-    //     if (dy > 0) {
-    //       theta *= -1;
-    //     }
-    //   } else {
-    //     if (dy > 0) {
-    //       theta += Math.PI;
-    //     } else {
-    //       theta += Math.PI - 2 * theta;
-    //     }
-    //   }
-    //   out.translateX *= -Math.cos(theta);
-    //   out.translateY *= -Math.sin(theta);
-    // } else if (
-    //   Math.abs(dx) > options.xRadius ||
-    //   Math.abs(dy) > options.yRadius
-    // ) {
-    //   if (Math.abs(dx) > options.xRadius) {
-    //     out.translateX *= -Math.sign(dx);
-    //     out.translateY = 0;
-    //   } else {
-    //     out.translateY *= -Math.sign(dy);
-    //     out.translateX = 0;
-    //   }
-    // }
-
     return out;
   };
 
@@ -256,19 +109,11 @@ export default function BubbleElement(props) {
       className={props.className}
       style={{
         display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
         ...props.style,
       }}
     >
       <div className={styles.container}>
-        {/* <p>{`scrollTop: ${scrollTop}`}</p>
-        <p>{`scrollLeft: ${scrollLeft}`}</p> */}
-        <div
-          // className={styles.scrollable}
-          // ref={scrollable}
-          // onScroll={handleScroll}
-        >
+        <div>
           <div
             className={styles.horizontalSpacer}
             style={{
@@ -361,26 +206,6 @@ export default function BubbleElement(props) {
                     : options.cornerRadius + options.fringeWidth,
               }}
             ></div>
-            {/* <div
-              style={{
-                position: "absolute",
-                height: `100%`,
-                width: 1,
-                backgroundColor: "#000",
-                left: `50%`,
-                top: 0,
-              }}
-            ></div>
-            <div
-              style={{
-                position: "absolute",
-                width: `100%`,
-                height: 1,
-                backgroundColor: "#000",
-                top: `50%`,
-                left: 0,
-              }}
-            ></div> */}
           </div>
         ) : null}
       </div>
