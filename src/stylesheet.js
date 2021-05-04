@@ -3,7 +3,7 @@ export const stylesheet = {
     position: "relative",
     width: "100%",
     height: "100%",
-    overflow: "hidden",
+    // overflow: "hidden",
   },
   scrollable___webkit_scrollbar: { display: "none" },
   horizontalSpacer: { position: "relative", height: "50%", width: "100%" },
