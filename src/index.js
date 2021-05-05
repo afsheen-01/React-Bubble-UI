@@ -80,10 +80,9 @@ export default function BubbleElement(props) {
       options.size +
       (options.cornerRadius * (1.414 - 1)) / 1.414 -
       (options.xRadius - options.size);
-    const dy = yOffset;
     
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    console.log(distance)
+    const distance = Math.sqrt(xOffset * xOffset + yOffset * yOffset);
+    // console.log(distance)
     let out = {
       bubbleSize: 1,
       translateX: 0,
