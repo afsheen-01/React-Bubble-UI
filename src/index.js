@@ -28,16 +28,18 @@ export default function BubbleElement(props) {
 
   const minProportion = options.minSize / options.size;
 
-  const verticalPadding = `calc(50% - ${
-    options.yRadius +
-    options.size / 2 -
-    (options.cornerRadius * (1.414 - 1)) / 1.414
-  }px)`;
-  const horizontalPadding = `calc(50% - ${
-    options.xRadius +
-    options.size / 2 -
-    (options.cornerRadius * (1.414 - 1)) / 1.414
-  }px)`;
+  // const verticalPadding = 
+  // `calc(50% - ${
+  //   options.yRadius +
+  //   options.size / 2 -
+  //   (options.cornerRadius * (1.414 - 1)) / 1.414
+  // }px)`;
+  // const horizontalPadding = 
+  // `calc(50% - ${
+  //   options.xRadius +
+  //   options.size / 2 -
+  //   (options.cornerRadius * (1.414 - 1)) / 1.414
+  // }px)`;
 
   // const scrollable = useRef(null);
 
@@ -68,18 +70,18 @@ export default function BubbleElement(props) {
   };
 
   const getBubbleSize = (row, col) => {
-    const yOffset =
-      (options.size + options.gutter) * 0.866 * row -
-      options.size +
-      (options.cornerRadius * (1.414 - 1)) / 1.414 -
-      (options.yRadius - options.size);
-    const xOffset =
-      (options.size + options.gutter) * col +
-      ((options.numCols - rows[row].length) * (options.size + options.gutter)) /
-        2 -
-      options.size +
-      (options.cornerRadius * (1.414 - 1)) / 1.414 -
-      (options.xRadius - options.size);
+    const yOffset = 0
+      // (options.size + options.gutter) * 0.866 * row -
+      // options.size +
+      // (options.cornerRadius * (1.414 - 1)) / 1.414 -
+      // (options.yRadius - options.size);
+    const xOffset = 0
+      // (options.size + options.gutter) * col +
+      // ((options.numCols - rows[row].length) * (options.size + options.gutter)) /
+      //   2 -
+      // options.size +
+      // (options.cornerRadius * (1.414 - 1)) / 1.414 -
+      // (options.xRadius - options.size);
     
     const distance = Math.sqrt(xOffset * xOffset + yOffset * yOffset);
     // console.log(distance)
