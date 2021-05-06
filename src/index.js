@@ -118,7 +118,7 @@ export default function BubbleElement(props) {
           <div
             className={styles.horizontalSpacer}
             style={{
-              height: verticalPadding,
+              // height: verticalPadding,
             }}
           ></div>
           <div
@@ -127,8 +127,8 @@ export default function BubbleElement(props) {
               width:
                 options.size * options.numCols +
                 options.gutter * (options.numCols - 1),
-              paddingLeft: horizontalPadding,
-              paddingRight: horizontalPadding,
+              // paddingLeft: horizontalPadding,
+              // paddingRight: horizontalPadding,
             }}
           >
             {rows.map((row, i) => {
@@ -180,7 +180,7 @@ export default function BubbleElement(props) {
           <div
             className={styles.horizontalSpacer}
             style={{
-              height: verticalPadding,
+              // height: verticalPadding,
             }}
           ></div>
         </div>
