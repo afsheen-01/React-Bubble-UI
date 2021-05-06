@@ -28,18 +28,18 @@ export default function BubbleElement(props) {
 
   const minProportion = options.minSize / options.size;
 
-  // const verticalPadding = 
-  // `calc(50% - ${
-  //   options.yRadius +
-  //   options.size / 2 -
-  //   (options.cornerRadius * (1.414 - 1)) / 1.414
-  // }px)`;
-  // const horizontalPadding = 
-  // `calc(50% - ${
-  //   options.xRadius +
-  //   options.size / 2 -
-  //   (options.cornerRadius * (1.414 - 1)) / 1.414
-  // }px)`;
+  const verticalPadding = 
+  `calc(50% - ${
+    options.yRadius +
+    options.size / 2 -
+    (options.cornerRadius * (1.414 - 1)) / 1.414
+  }px)`;
+  const horizontalPadding = 
+  `calc(50% - ${
+    options.xRadius +
+    options.size / 2 -
+    (options.cornerRadius * (1.414 - 1)) / 1.414
+  }px)`;
 
   // const scrollable = useRef(null);
 
@@ -118,7 +118,7 @@ export default function BubbleElement(props) {
           <div
             className={styles.horizontalSpacer}
             style={{
-              // height: verticalPadding,
+              height: verticalPadding,
             }}
           ></div>
           <div
@@ -127,8 +127,8 @@ export default function BubbleElement(props) {
               width:
                 options.size * options.numCols +
                 options.gutter * (options.numCols - 1),
-              // paddingLeft: horizontalPadding,
-              // paddingRight: horizontalPadding,
+              paddingLeft: horizontalPadding,
+              paddingRight: horizontalPadding,
             }}
           >
             {rows.map((row, i) => {
@@ -180,7 +180,7 @@ export default function BubbleElement(props) {
           <div
             className={styles.horizontalSpacer}
             style={{
-              // height: verticalPadding,
+              height: verticalPadding,
             }}
           ></div>
         </div>
