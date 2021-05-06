@@ -71,17 +71,17 @@ export default function BubbleElement(props) {
 
   const getBubbleSize = (row, col) => {
     const yOffset = 0
-      // (options.size + options.gutter) * 0.866 * row -
-      // options.size +
-      // (options.cornerRadius * (1.414 - 1)) / 1.414 -
-      // (options.yRadius - options.size);
+      (options.size + options.gutter) * 0.866 * row -
+      options.size +
+      (options.cornerRadius * (1.414 - 1)) / 1.414 -
+      (options.yRadius - options.size);
     const xOffset = 0
-      // (options.size + options.gutter) * col +
-      // ((options.numCols - rows[row].length) * (options.size + options.gutter)) /
-      //   2 -
-      // options.size +
-      // (options.cornerRadius * (1.414 - 1)) / 1.414 -
-      // (options.xRadius - options.size);
+      (options.size + options.gutter) * col +
+      ((options.numCols - rows[row].length) * (options.size + options.gutter)) /
+        2 -
+      options.size +
+      (options.cornerRadius * (1.414 - 1)) / 1.414 -
+      (options.xRadius - options.size);
     
     const distance = Math.sqrt(xOffset * xOffset + yOffset * yOffset);
     // console.log(distance)
