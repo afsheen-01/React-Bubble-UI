@@ -2,18 +2,18 @@ import React, { useState, useLayoutEffect, useRef } from "react";
 import styles from "./styles.module.css";
 
 export const defaultOptions = {
-  size: 200,
-  minSize: 20,
-  gutter: 16,
-  provideProps: false,
+  size: 140,
+  minSize: 50,
+  provideProps: true,
   numCols: 6,
-  fringeWidth: 100,
-  yRadius: 200,
-  xRadius: 200,
-  cornerRadius: 100,
+  gutter: 0,
+  fringeWidth: 0,
+  yRadius: 50,
+  xRadius: 400,
+  cornerRadius: 40,
   showGuides: false,
   compact: false,
-  gravitation: 0,
+  gravitation: 5
 };
 
 export default function BubbleElement(props) {
