@@ -40,7 +40,10 @@ export default function BubbleElement(props) {
     options.size / 2 -
     (options.cornerRadius * (1.414 - 1)) / 1.414
   }px)`;
+  console.log(minProportion + "minProportion")
+  console.log(verticalPadding + "verticalPadding")
 
+  console.log(horizontalPadding + "horizontalPadding")
   // const scrollable = useRef(null);
 
   let rows = [];
