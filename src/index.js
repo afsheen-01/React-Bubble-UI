@@ -157,8 +157,8 @@ export default function BubbleElement(props) {
                         style={{
                           width: options.size,
                           height: options.size,
-                          marginRight: options.gutter / 2,
-                          marginLeft: options.gutter / 2,
+                          // marginRight: options.gutter / 2,
+                          // marginLeft: options.gutter / 2,
                           transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${bubbleSize})`,
                         }}
                       >
